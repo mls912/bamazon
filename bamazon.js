@@ -86,7 +86,6 @@ function promptUserPurchase() {
 						console.log('Your oder of ' + productData.product_name + ' has been placed! Your total is $' + productData.price * quantity);
 						console.log("\n---------------------------------------------------------------------\n");
 
-						// End the database connection
 						connection.end();
 					})
 				} else {
@@ -101,14 +100,13 @@ function promptUserPurchase() {
 	})
 }
 
-// displayInventory will retrieve the current inventory from the database and output it to the console
 function displayInventory() {
-	// console.log('___ENTER displayInventory___');
+	// console.log('displayInventory');
 
 	// Construct the db query string
 	productSearch = 'SELECT * FROM products';
 
-	// Make the db query
+
 	connection.query(productSearch, function(err, data) {
 		if (err) throw err;
 
@@ -135,7 +133,6 @@ function displayInventory() {
 
 // runBamazon will execute the main application logic
 function runBamazon() {
-	// console.log('___ENTER runBamazon___');
 
 	// Display the available inventory
 	displayInventory();
